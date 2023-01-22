@@ -1,7 +1,11 @@
 .App {
   text-align: center;
   background-color: rgb(12, 233, 233);
+  display: flex;
 }
-
-
+.box{
+border: 2px solid black;
+width: 20rem;
+margin: 2rem;
+}
 
