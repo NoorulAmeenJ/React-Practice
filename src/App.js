@@ -2,24 +2,57 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (
+  return ( 
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <SampleCard/>
+        <SampleCard/>
+        <SampleCard/>
+
+       </div>
   );
 }
 
 export default App;
+
+
+// for function small 1st letter 
+// for component capital 1st letter 
+ function SampleCard() {
+  return(
+    <div>
+      <h1>Cards</h1>
+      <h1>Cards-details</h1>
+    </div>
+  )
+}
+
+
+
+
+// function SampleCard (props) {
+
+//   const [show, setShow] = useState(false); 
+ 
+//    const handleClick = () =>{
+//     setShow(!show)
+//    }
+ 
+//    const describeStyle = { 
+//      display : show ? "block" :"none" ,
+   
+//    }
+ 
+ 
+//    return (
+//      <div style={{backgroundColor:props.clr}}className='card-content'>
+//        <p>Card name : {props.name}</p>
+ 
+//        {/* conditional rendering */}
+//        {/* {show ? <p>Card Details: {props.details}</p> : ""} */}
+ 
+//        {/* conditional styling  */}
+//        <p style={describeStyle}>Card Details: {props.details}</p>
+//        <button style={{color : show ? "red" : "white"}} onClick={()=>{handleClick()}} >{!show ? "show" : "hide"}</button>
+//      </div> 
+//    )
+//  }
