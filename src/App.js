@@ -1,7 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
+import userEvent from '@testing-library/user-event';
+import { useState } from 'react';
 
 function App(){
+
   const data = [
     {
       name: "Noorul",
@@ -28,15 +31,36 @@ function App(){
        </div>
   );
 }
+
+
+
 export default App;
 // for function small 1st letter 
 // for component capital 1st letter 
+
+
+
  function SampleCard(props) {
- 
+ var [count,setCount] = useState(2)
+ let [show,setShow] = useState(false)
+
+  //var count = 0
+  function button() {
+    count++
+        setCount(count)
+        setShow(!show)
+     console.log("current count is" +count)
+
+
+
+  }
   return(
     <div className="box" style={{backgroundColor:props.clr}} >
-      <p>Cards : {props.name}</p>
-      <p>Cards-details : {props.company}</p>
+      {show ? <p id="style">Cards : {props.name}</p> : <p id="nonstyle">Cards : {props.name}</p>} 
+      {/* <p> Cards-details : {props.company}</p> */}
+      {show ?   <p> Cards-details : {props.company}</p>  : " "}
+      <p>{count}</p>
+      <button id="btn" onClick={()=>button()}>Button</button>
     </div>
   )
 }
