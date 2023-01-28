@@ -43,7 +43,7 @@ function SampleCard(props) {
     count++;
     setCount(count);
     setShow(!show);
-    console.log("current count is" + count);
+    
   }
   return (
     <div className="box" style={{ backgroundColor: props.clr }}>
@@ -55,30 +55,3 @@ function SampleCard(props) {
     </div>
   );
 }
-
-// function SampleCard (props) {
-
-//   const [show, setShow] = useState(false);
-
-//    const handleClick = () =>{
-//     setShow(!show)
-//    }
-
-//    const describeStyle = {
-//      display : show ? "block" :"none" ,
-
-//    }
-
-//    return (
-//      <div style={{backgroundColor:props.clr}}className='card-content'>
-//        <p>Card name : {props.name}</p>
-
-//        {/* conditional rendering */}
-//        {/* {show ? <p>Card Details: {props.details}</p> : ""} */}
-
-//        {/* conditional styling  */}
-//        <p style={describeStyle}>Card Details: {props.details}</p>
-//        <button style={{color : show ? "red" : "white"}} onClick={()=>{handleClick()}} >{!show ? "show" : "hide"}</button>
-//      </div>
-//    )
-//  }
