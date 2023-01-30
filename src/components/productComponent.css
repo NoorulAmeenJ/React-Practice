@@ -1,3 +1,8 @@
 .btn-area{
     border: 2px solid red;
 }
+.product-data{
+    display: flex;
+    justify-content: center;
+    gap: 1rem ;
+}

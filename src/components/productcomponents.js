@@ -6,31 +6,33 @@ import "./productComponent.css"
 
 export function ProductComponent (){
     const [card, setCard] = useState(data)
+    const [item, setItem] = useState(0)
     console.log(card)
     return(
+        <div>
+             <div>Cart {item}</div>
+      
         <div className="product-data">
-     
-        { data.map((values,id) => (
+          
+        { data.map((prod,idx) => ( 
             <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Img variant="top" src={prod.prodImage} />
       <Card.Body>
         <Card.Title>Card Title</Card.Title>
-        <p className='price-cart'>Price</p>
-        <p className='rating-data'>ratings</p>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
+        <p className='price-cart'>{prod.prodPrice}</p>
+        <p className='rating-data'>{prod.prodRating}</p>
+        <Card.Text>{prod.prodDescription}</Card.Text>
       
       </Card.Body>
       <div className='btn-area'>
-        <Button variant="primary">Go somewhere</Button> {" "}
-        <Button variant="secondary">Go somewhere</Button>
+        <Button variant="primary">Add</Button> {" "}
+        <Button variant="secondary">Remove</Button>
         </div>
     </Card>
         
         ) )}
             
+            </div>
             </div>
     )
 }
