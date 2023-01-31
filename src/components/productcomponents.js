@@ -7,7 +7,7 @@ import "./productComponent.css"
 export function ProductComponent (){
     const [card, setCard] = useState(data)
     const [item, setItem] = useState(0)
-    console.log(card)
+    
     return(
         <div>
              <div>Cart {item}</div>
