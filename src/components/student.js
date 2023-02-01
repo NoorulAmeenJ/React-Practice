@@ -11,14 +11,41 @@ import base from "../base/base.js"
 
 export function StudentDetails () {
     const [studentsData, setStudents] = useState(data)
+    const [Id, setId] =  useState("")
+    const [name, setName] =  useState("")
+    const [batch, setBatch] = useState("")
+    const [gender, setGender] = useState("")
+    const [experience, setExperience] = useState("")
+ 
+    const addNewStudents = () => {
+        console.log(Id,name,gender,batch)
+    }
     return(
         <div className="containers">
             <div className="input-section">
-            <TextField fullWidth label="fullWidth" id="fullWidth" />
-            <TextField fullWidth label="fullWidth" id="fullWidth" />
-            <TextField fullWidth label="fullWidth" id="fullWidth" />
-            <TextField fullWidth label="fullWidth" id="fullWidth" />
-            <Button size="small">Add</Button>
+            <TextField   label="Id"
+            onChange={(event) =>(setId(event.target.value))}
+            value = {Id}
+              />
+            <TextField   
+            onChange={(event) =>(setName(event.target.value))}
+            value = {name}
+            label="name"   />
+            <TextField  
+            onChange={(event) =>(setBatch(event.target.value))}
+            value = {batch}
+             label="batch"   />
+            <TextField  
+            onChange={(event) =>(setGender(event.target.value))}
+            value = {gender}
+             label="gender"   />
+            <TextField  
+            onChange={(event) =>(setExperience(event.target.value))}
+            value = {experience}
+             label="experience"   />
+            <Button
+            onClick={addNewStudents}
+            size="small">Add</Button>
             </div>
 
         <div className="card-containers">
