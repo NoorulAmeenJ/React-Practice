@@ -10,8 +10,11 @@ import Base from "./base/base";
 function App() {
   return (
     <div className="App">
-     
-     <Base/>
+     <Base 
+     title = "batch details"
+     description= "All studnet details">
+      
+     </Base>
     </div>
     
   );
