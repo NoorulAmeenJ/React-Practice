@@ -4,13 +4,14 @@ import userEvent from "@testing-library/user-event";
 import { useState } from "react";
 import { ProductComponent } from "./components/productcomponents";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Base from "./base/base";
 
 
 function App() {
   return (
     <div className="App">
      
-     <ProductComponent/>
+     <Base/>
     </div>
     
   );

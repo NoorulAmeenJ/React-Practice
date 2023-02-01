@@ -1,5 +1,5 @@
 import {Button, Card } from 'react-bootstrap';
-import {data} from "../data";
+import {data} from "../data/data";
 import { useState } from 'react';
 import "./productComponent.css"
 
