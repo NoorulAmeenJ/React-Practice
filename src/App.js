@@ -5,6 +5,7 @@ import { useState } from "react";
 import { ProductComponent } from "./components/productcomponents";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Base from "./base/base";
+import { StudentDetails } from "./components/student.js";
 
 
 function App() {
@@ -12,8 +13,8 @@ function App() {
     <div className="App">
      <Base 
      title = "batch details"
-     description= "All studnet details">
-      
+     description= "All student details">
+      <StudentDetails/>
      </Base>
     </div>
     

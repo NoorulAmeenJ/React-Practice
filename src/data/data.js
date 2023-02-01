@@ -43,7 +43,7 @@ export const data = [
     }
 
 ]
-
+export default data
 // export const data = [
 //     {
 //         prodImage : "https://alquranclasses.com/wp-content/uploads/2022/05/5-pillars-of-islam02.png",
