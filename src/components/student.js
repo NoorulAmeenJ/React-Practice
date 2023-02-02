@@ -8,15 +8,17 @@ import React, { useState } from "react";
 // import { Button, Card } from "react-bootstrap";
 import data from "../data/data.js"
 import base from "../base/base.js"
+import { SentimentDissatisfied, SettingsPhoneTwoTone } from "@mui/icons-material";
 
 export function StudentDetails () {
-    const [studentsData, setStudentsData] = useState(data)
-    const [id, setid] =  useState("")
+    const [studentsData, setStudents] = useState(data)
+    const [id, setId] =  useState("")
     const [name, setName] =  useState("")
     const [batch, setBatch] = useState("")
     const [gender, setGender] = useState("")
     const [experience, setExperience] = useState("")
- 
+    const [show, setShow] = useState(true)
+    const [editId, setEditId] = useState("")
     // const foo = [5,1,2,3]
     // const newfoo = [...foo,5]
     // console.log(foo,newfoo)
@@ -29,14 +31,50 @@ export function StudentDetails () {
         yearsOfExperience: experience
       }  
  console.log(newStudent)     
- setStudentsData([...studentsData,newStudent]) 
+ setStudents([...studentsData,newStudent]) 
+ setId("")
+ setName("")
+ setBatch("")
+ setGender("")
+ setExperience("")
     }
-           
+    const deleteStudentData = (studId) => {
+      const selectedStudents = studentsData.filter((stud)=> stud.id != studId) ;
+      setStudents(selectedStudents);
+      
+    }
+    const editandSelectStudent = (idx) => {
+      setShow(!show)
+      setEditId(idx);
+
+      // filter means it will give as array 
+         const selectedData = studentsData.find((stud) => stud.id === idx) 
+         setId(selectedData.id);
+         setName(selectedData.name);
+         setBatch(selectedData.batch);
+         setGender(selectedData.gender);
+         setExperience(selectedData.yearsOfExperience);
+    }
+    const updateStudentData = (idx) => {
+      const editStudent = studentsData.findIndex((stud) => stud.id === editId);
+      console.log(editStudent)
+
+      const updatedObj = {
+        id,
+        name,
+        gender,
+        batch,
+        yearsOfExperience: experience
+      }  
+      console.log(updatedObj)
+      studentsData[editStudent] = updatedObj;
+      setStudents([...studentsData])
+    }     
     return(
         <div className="containers">
             <div className="input-section">
             <TextField   label="id"
-            onChange={(event) =>(setid(event.target.value))}
+            onChange={(event) =>(setId(event.target.value))}
             value = {id}
               />
             <TextField   
@@ -57,7 +95,15 @@ export function StudentDetails () {
              label="experience"   />
             <Button
             onClick={addNewStudents}
-            size="small">Add</Button>
+            size="small"
+            color="success">Add
+            </Button>
+
+            <Button
+            onClick={updateStudentData}
+            size="small"
+            color="secondary">Update
+            </Button>
             </div>
 
         <div className="card-containers">
@@ -79,8 +125,8 @@ export function StudentDetails () {
          </Typography>
      </CardContent>
      <CardActions>
-       <Button size="small">Edit</Button>
-       <Button varient="contained" color="error">Delete</Button>
+       <Button size="small" onClick={()=> editandSelectStudent(stud.id)} >Edit</Button>
+       <Button varient="contained" color="error" onClick={()=> {deleteStudentData(stud.id)}}>Delete</Button>
      </CardActions>
    </Card>
 
