@@ -10,22 +10,34 @@ import data from "../data/data.js"
 import base from "../base/base.js"
 
 export function StudentDetails () {
-    const [studentsData, setStudents] = useState(data)
-    const [Id, setId] =  useState("")
+    const [studentsData, setStudentsData] = useState(data)
+    const [id, setid] =  useState("")
     const [name, setName] =  useState("")
     const [batch, setBatch] = useState("")
     const [gender, setGender] = useState("")
     const [experience, setExperience] = useState("")
  
+    // const foo = [5,1,2,3]
+    // const newfoo = [...foo,5]
+    // console.log(foo,newfoo)
     const addNewStudents = () => {
-        console.log(Id,name,gender,batch)
+      let newStudent = {
+        id,
+        name,
+        gender,
+        batch,
+        yearsOfExperience: experience
+      }  
+ console.log(newStudent)     
+ setStudentsData([...studentsData,newStudent]) 
     }
+           
     return(
         <div className="containers">
             <div className="input-section">
-            <TextField   label="Id"
-            onChange={(event) =>(setId(event.target.value))}
-            value = {Id}
+            <TextField   label="id"
+            onChange={(event) =>(setid(event.target.value))}
+            value = {id}
               />
             <TextField   
             onChange={(event) =>(setName(event.target.value))}
