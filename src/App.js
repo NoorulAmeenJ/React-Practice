@@ -7,17 +7,40 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Base from "./base/base";
 import DashBoard from "./components/DashBoard";
 import { StudentDetails } from "./components/student.js";
-
+import { Button } from "react-bootstrap";
+import AuthPage from "./components/AuthPage";
+import { Redirect, Route, Switch } from "react-router-dom";
+import NoPage from "./components/NoPage";
+// import { Switch } from "@mui/material";
 
 function App() {
   return (
     <div className="App">
-     <Base 
-     title = "batch details"
-     description= "All student details">
-      <StudentDetails/>
-     </Base>
-     <DashBoard/>
+    
+      <Switch>
+
+          <Route exact path = "/">
+            <h1>Welcome to our App</h1>
+          </Route>
+          <Route path = "/dashboard">
+            <DashBoard/>
+          </Route>
+          <Route path = "/register/j">
+            <AuthPage/>
+          </Route>
+          <Route path = "/details">
+            <StudentDetails/>
+          </Route>
+          <Route path = "/students">
+            <Redirect to="/details"/>
+          </Route>
+          <Route path = "**">
+            <NoPage/>
+          </Route>
+      </Switch>
+        
+  
+   
     </div>
     
   );
@@ -26,7 +49,10 @@ function App() {
 export default App;
 
 
+{/* 
 
+<DashBoard/>
+<AuthPage/> */}
 
 
 

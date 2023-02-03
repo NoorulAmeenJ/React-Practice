@@ -7,8 +7,8 @@ import {TextField, Button, Card, CardActions, CardContent,Typography } from "@mu
 import React, { useState } from "react";
 // import { Button, Card } from "react-bootstrap";
 import data from "../data/data.js"
-import base from "../base/base.js"
-import { SentimentDissatisfied, SettingsPhoneTwoTone } from "@mui/icons-material";
+
+import Base from "../base/base.js";
 
 export function StudentDetails () {
     const [studentsData, setStudents] = useState(data)
@@ -80,6 +80,12 @@ export function StudentDetails () {
          setShowUpdate(false)
     }     
     return(
+      <Base 
+title = "Batch Details"
+description= "Click me"
+> 
+
+
         <div className="containers">
             <div className="input-section">
             <TextField   label="id"
@@ -149,6 +155,7 @@ export function StudentDetails () {
              
         </div>
         </div>
+        </Base>
 
     )
 }
