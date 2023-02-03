@@ -5,6 +5,7 @@ import { useState } from "react";
 import { ProductComponent } from "./components/productcomponents";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Base from "./base/base";
+import DashBoard from "./components/DashBoard";
 import { StudentDetails } from "./components/student.js";
 
 
@@ -16,6 +17,7 @@ function App() {
      description= "All student details">
       <StudentDetails/>
      </Base>
+     <DashBoard/>
     </div>
     
   );
