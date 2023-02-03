@@ -19,6 +19,8 @@ export function StudentDetails () {
     const [experience, setExperience] = useState("")
     const [show, setShow] = useState(true)
     const [editId, setEditId] = useState("")
+    const [showUpdate, setShowUpdate] = useState(false)
+    const [showAdd, setShowAdd] = useState(true)
     // const foo = [5,1,2,3]
     // const newfoo = [...foo,5]
     // console.log(foo,newfoo)
@@ -44,7 +46,7 @@ export function StudentDetails () {
       
     }
     const editandSelectStudent = (idx) => {
-      setShow(!show)
+    
       setEditId(idx);
 
       // filter means it will give as array 
@@ -54,6 +56,9 @@ export function StudentDetails () {
          setBatch(selectedData.batch);
          setGender(selectedData.gender);
          setExperience(selectedData.yearsOfExperience);
+         setShowAdd(false)
+         setShowUpdate(true)
+
     }
     const updateStudentData = (idx) => {
       const editStudent = studentsData.findIndex((stud) => stud.id === editId);
@@ -68,7 +73,11 @@ export function StudentDetails () {
       }  
       console.log(updatedObj)
       studentsData[editStudent] = updatedObj;
+     console.log(studentsData)
       setStudents([...studentsData])
+
+      setShowAdd(true)
+         setShowUpdate(false)
     }     
     return(
         <div className="containers">
@@ -93,17 +102,22 @@ export function StudentDetails () {
             onChange={(event) =>(setExperience(event.target.value))}
             value = {experience}
              label="experience"   />
+      { showAdd ?
             <Button
             onClick={addNewStudents}
             size="small"
             color="success">Add
-            </Button>
-
+             </Button>
+             :
+              ""}
+      { showUpdate ?
             <Button
             onClick={updateStudentData}
             size="small"
             color="secondary">Update
             </Button>
+            :
+            ""}
             </div>
 
         <div className="card-containers">
