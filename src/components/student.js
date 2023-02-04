@@ -7,11 +7,11 @@ import {TextField, Button, Card, CardActions, CardContent,Typography } from "@mu
 import React, { useState } from "react";
 // import { Button, Card } from "react-bootstrap";
 import data from "../data/data.js"
-
+import { useHistory } from "react-router-dom";
 import Base from "../base/base.js";
 
-export function StudentDetails () {
-    const [studentsData, setStudents] = useState(data)
+export function StudentDetails ({studentsData, setStudents }) {
+   
     const [id, setId] =  useState("")
     const [name, setName] =  useState("")
     const [batch, setBatch] = useState("")
@@ -21,6 +21,7 @@ export function StudentDetails () {
     const [editId, setEditId] = useState("")
     const [showUpdate, setShowUpdate] = useState(false)
     const [showAdd, setShowAdd] = useState(true)
+const history = useHistory()
     // const foo = [5,1,2,3]
     // const newfoo = [...foo,5]
     // console.log(foo,newfoo)
@@ -147,6 +148,7 @@ description= "Click me"
      <CardActions>
        <Button size="small" onClick={()=> editandSelectStudent(stud.id)} >Edit</Button>
        <Button varient="contained" color="error" onClick={()=> {deleteStudentData(stud.id)}}>Delete</Button>
+      <Button onClick={()=> history.push(`/student/${id}`)}>View student</Button>
      </CardActions>
    </Card>
 

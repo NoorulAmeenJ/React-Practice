@@ -11,32 +11,41 @@ import { Button } from "react-bootstrap";
 import AuthPage from "./components/AuthPage";
 import { Redirect, Route, Switch } from "react-router-dom";
 import NoPage from "./components/NoPage";
+import WelcomePage from "./components/WelcomePage";
+import StudentsProfile from "./components/StudentsProfile";
+import data from "./data/data";
 // import { Switch } from "@mui/material";
 
 function App() {
+  const [studentsData,setStudents] = useState(data);
   return (
     <div className="App">
     
       <Switch>
 
           <Route exact path = "/">
-            <h1>Welcome to our App</h1>
+            <WelcomePage/>
           </Route>
           <Route path = "/dashboard">
             <DashBoard/>
           </Route>
-          <Route path = "/register/j">
+          <Route path = "/register">
             <AuthPage/>
           </Route>
           <Route path = "/details">
-            <StudentDetails/>
+            <StudentDetails studentsData={studentsData} setStudents={setStudents}/>
           </Route>
           <Route path = "/students">
             <Redirect to="/details"/>
           </Route>
+          <Route path = "/student/:id">
+            <StudentsProfile studentsData={studentsData}/>
+          </Route>
           <Route path = "**">
             <NoPage/>
           </Route>
+
+        
           
       </Switch>
         
