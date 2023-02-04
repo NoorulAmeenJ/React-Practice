@@ -1,11 +1,5 @@
 import {TextField, Button, Card, CardActions, CardContent,Typography } from "@mui/material";
-// import CardActions from '@mui/material/CardActions';
-// import CardContent from '@mui/material/CardContent';
-// import Button from '@mui/material/Button';
-// import Card from '@mui/material/Card';
-// import Typography from '@mui/material/Typography';
 import React, { useState } from "react";
-// import { Button, Card } from "react-bootstrap";
 import data from "../data/data.js"
 import { useHistory } from "react-router-dom";
 import Base from "../base/base.js";
@@ -151,8 +145,6 @@ description= "Click me"
       <Button onClick={()=> history.push(`/student/${id}`)}>View student</Button>
      </CardActions>
    </Card>
-
-
             ))}
              
         </div>
@@ -161,3 +153,5 @@ description= "Click me"
 
     )
 }
+
+
